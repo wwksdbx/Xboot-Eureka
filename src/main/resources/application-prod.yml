@@ -1,22 +1,7 @@
 spring:
-  application:
-    name: Xboot-eureka
-  zipkin:
-    base-url: http://localhost:9411
-
-  boot:
-    admin:
-      client:
-        url: http://localhost:8084
-
-server:
-  port: 8761
-
-eureka:   #服务端地址
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: false   #如果是服务端得将这两句改为false如果不加则会认为是客户端
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  #配置尤里卡服务器的地址
+  cloud:  #云配置
+    config:
+      uri: http://localhost:8888   #config的url
+      name: Xboot-admin     #git仓库配置文件中的name
+      label: master       #分支
+      profile: prod        #开发环境的Profile
